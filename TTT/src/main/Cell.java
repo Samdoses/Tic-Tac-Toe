@@ -1,13 +1,28 @@
 package main;
 
 public class Cell {
-	private int id;
+	private int row;
+	private int collumn;
+	private int owner = 0;//if the cell is unowned, or owned by player/computer
 	
-	public Cell(int id) {
-		this.id = id;
+	public Cell(int row, int collumn) {
+		this.row = row;
+		this.collumn = collumn;
 	}
 	
-	public int getID() {
-		return id;
+	public int getRow() {
+		return row;
 	}
+	
+	public int getCollumn() {
+		return collumn;
+	}
+	
+	private void setOwner() {
+		this.owner = owner;
+	}
+	
+	public int getOwner(){
+		return owner;
+	};
 }

@@ -1,23 +1,30 @@
 package main;
 
 public class Grid {
-	Cell[] grid;
+	Cell[][] grid;
 	
 	public Grid(int size) {
-		grid = new Cell[size];
+		grid = new Cell[size][size];
 		
-		for(int i=0;i<9;i++) {
-			Cell cell = new Cell(i);
-			grid[i] = cell;
+		for(int row=0;row<size;row++) {
+			for(int collumn=0; collumn<size;collumn++) {
+				Cell cell = new Cell(row, collumn);
+				grid[row][collumn] = cell;	
+			}
 		}
 	}
 	
 	public String toString() {
 		String result = "";
-		for(int i = 0; i < grid.length; i++) {
-			Cell cell = grid[i];
-			result += cell.getID();
+		
+		for(int row=0;row<grid.length;row++) {
+			for(int collumn=0; collumn<grid.length;collumn++) {
+				Cell cell = grid[row][collumn];
+				result += cell.getOwner();	
+			}
+			result += "\n";
 		}
+		
 		return result;
 	}
 }
