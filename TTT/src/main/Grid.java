@@ -14,6 +14,12 @@ public class Grid {
 		}
 	}
 	
+	//in the future another parameter is needed to understand if it is for player or computer
+	public void selectCell(int row, int collumn){
+		Cell cell = grid[row][collumn];
+		cell.setOwner(2);//later this can be enum or that variable which does not change. (2 is easily forgotten)
+	}
+	
 	public String toString() {
 		String result = "";
 		

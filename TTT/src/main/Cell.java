@@ -18,7 +18,7 @@ public class Cell {
 		return collumn;
 	}
 	
-	private void setOwner() {
+	public void setOwner(int owner) {
 		this.owner = owner;
 	}
 	
