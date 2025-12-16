@@ -5,9 +5,16 @@ import java.util.Scanner;
 import java.util.Scanner;
 
 public final class TUI {
+	private static Grid grid;
+	
 	public static void start() {	
-		Grid grid = new Grid(3);//creates a 3x3 grid
-		
+		grid = new Grid(3);//creates a 3x3 grid
+
+		while(true) {
+			turn();
+		}
+	}
+	public static void turn() {
 		System.out.println(grid);
 		
 		String row = "";
