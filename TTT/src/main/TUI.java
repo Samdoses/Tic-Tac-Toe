@@ -30,12 +30,19 @@ public final class TUI {
 		collumn = sc.nextInt();
 		
 		//index out of bounds check
-		if(row > GRIDSIZE || row <= 0 || collumn > GRIDSIZE || collumn <= 0) {
+		/*if(row > GRIDSIZE || row <= 0 || collumn > GRIDSIZE || collumn <= 0) {
 			System.out.println("Out of bounds. Please try again");
 		}
 		else {
 			grid.selectCell(row, collumn);
 			System.out.println(grid);
+		}*/
+		try {
+			grid.selectCell(row, collumn);
+			System.out.println(grid);
+		}
+		catch(ArrayIndexOutOfBoundsException exception){
+			System.out.println("Out of bounds. Please try again");
 		}
 	}
 }
