@@ -17,7 +17,13 @@ public class Grid {
 	//in the future another parameter is needed to understand if it is for player or computer
 	public void selectCell(int row, int collumn){
 		Cell cell = grid[row-1][collumn-1];
-		cell.setOwner(1);//later this can be enum or that variable which does not change. (2 is easily forgotten)
+		if(cell.getOwner() != 0) {
+			throw new OccupationException ();
+		}
+		else {
+			cell.setOwner(1);//later this can be enum or that variable which does not change. (2 is easily forgotten)
+		}
+		
 	}
 	
 	public String toString() {
