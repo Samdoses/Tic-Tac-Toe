@@ -16,12 +16,12 @@ public class Grid {
 	
 	//in the future another parameter is needed to understand if it is for player or computer
 	public void selectCell(int row, int collumn){
-		Cell cell = grid[row-1][collumn-1];
-		if(cell.getOwner() != 0) {
+		
+		if(grid[row-1][collumn-1] != 0) {
 			throw new OccupationException ();
 		}
 		else {
-			cell.setOwner(1);//later this can be enum or that variable which does not change. (2 is easily forgotten)
+			grid[row-1][collumn-1] = 1;//later this can be enum or that variable which does not change. (2 is easily forgotten)
 		}
 	}
 	
@@ -32,8 +32,7 @@ public class Grid {
 		
 		for(int row=0;row<grid.length;row++) {
 			for(int collumn=0; collumn<grid.length;collumn++) {
-				Cell cell = grid[row][collumn];
-				if(cell.getOwner() == 1) {
+				if(grid[row][collumn] == 1) {
 					count++;
 				}
 			}
@@ -51,8 +50,7 @@ public class Grid {
 		
 		for(int row=0;row<grid.length;row++) {
 			for(int collumn=0; collumn<grid.length;collumn++) {
-				Cell cell = grid[row][collumn];
-				result += cell.getOwner();	
+				result += grid[row][collumn];	
 			}
 			result += "\n";
 		}
