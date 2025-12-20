@@ -1,5 +1,6 @@
 package main;
 
+//do I just get rid of this class and make grid a int 2d array?
 public class Cell {
 	private int row;
 	private int collumn;

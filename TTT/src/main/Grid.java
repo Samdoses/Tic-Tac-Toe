@@ -2,6 +2,7 @@ package main;
 
 public class Grid {
 	Cell[][] grid;
+	//make size a 
 	
 	public Grid(int size) {
 		grid = new Cell[size][size];
@@ -23,7 +24,27 @@ public class Grid {
 		else {
 			cell.setOwner(1);//later this can be enum or that variable which does not change. (2 is easily forgotten)
 		}
+	}
+	
+	//checks if the player has won
+	public boolean win() {
 		
+		int count=0;
+		
+		for(int row=0;row<grid.length;row++) {
+			for(int collumn=0; collumn<grid.length;collumn++) {
+				Cell cell = grid[row][collumn];
+				if(cell.getOwner() == 1) {
+					count++;
+				}
+			}
+		}
+		
+		if(count == (grid.length)) {
+			return true;
+		}
+		
+		return false;
 	}
 	
 	public String toString() {
