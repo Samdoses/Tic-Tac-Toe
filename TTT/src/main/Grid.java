@@ -1,46 +1,57 @@
 package main;
 
 public class Grid {
-	Cell[][] grid;
-	//make size a 
+	//Representing the TTT grid as a 2d integer array 
+	int[][] grid;
+	
+	// For Marking a unoccupied location.
+	private static final int EMPTY = 0;
+	// For marking a player occupied location.
+	private static final int PLAYER = 1;
 	
 	public Grid(int size) {
-		grid = new Cell[size][size];
+		grid = new int[size][size];
 		
 		for(int row=0;row<size;row++) {
 			for(int collumn=0; collumn<size;collumn++) {
-				Cell cell = new Cell(row, collumn);
-				grid[row][collumn] = cell;	
+				grid[row][collumn] = EMPTY;	
 			}
 		}
 	}
 	
 	//in the future another parameter is needed to understand if it is for player or computer
 	public void selectCell(int row, int collumn){
-		Cell cell = grid[row-1][collumn-1];
-		if(cell.getOwner() != 0) {
+		
+		if(grid[row-1][collumn-1] != EMPTY) {
 			throw new OccupationException ();
 		}
 		else {
-			cell.setOwner(1);//later this can be enum or that variable which does not change. (2 is easily forgotten)
+			grid[row-1][collumn-1] = PLAYER;
 		}
 	}
 	
 	//checks if the player has won
 	public boolean win() {
 		
-		int count=0;
+		//MAKE CONDITION != 0 FOR COMPATABILITY WITH COMPUTER???
 		
+		//Checks if the user has a row to win
 		for(int row=0;row<grid.length;row++) {
-			for(int collumn=0; collumn<grid.length;collumn++) {
-				Cell cell = grid[row][collumn];
-				if(cell.getOwner() == 1) {
-					count++;
-				}
+			if(grid[row][0] == PLAYER && grid[row][1] == PLAYER && grid[row][2] == PLAYER) {
+				return true;
 			}
 		}
 		
-		if(count == (grid.length)) {
+		//checks if the user has a column to win
+		for(int collumn=0; collumn<grid.length;collumn++) {
+			if(grid[0][collumn] == PLAYER && grid[1][collumn] == PLAYER && grid[2][collumn] == PLAYER) {
+				return true;
+			}
+		}
+
+		//checks if the user has a cross to win
+		if(grid[0][0] == PLAYER && grid[1][1] == PLAYER && grid[2][2] == PLAYER ||
+				grid[0][2] == PLAYER && grid[1][1] == PLAYER && grid[2][0] == PLAYER) {
 			return true;
 		}
 		
@@ -52,8 +63,7 @@ public class Grid {
 		
 		for(int row=0;row<grid.length;row++) {
 			for(int collumn=0; collumn<grid.length;collumn++) {
-				Cell cell = grid[row][collumn];
-				result += cell.getOwner();	
+				result += grid[row][collumn];	
 			}
 			result += "\n";
 		}
