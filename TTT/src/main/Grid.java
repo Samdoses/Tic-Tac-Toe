@@ -35,18 +35,13 @@ public class Grid {
 		
 		int count=0;
 		
+		//Checks if the user has a row to win
 		for(int row=0;row<grid.length;row++) {
-			for(int collumn=0; collumn<grid.length;collumn++) {
-				if(grid[row][collumn] == 1) {
-					count++;
-				}
+			if(grid[row][0] == 1 && grid[row][1] == 1 && grid[row][2] == 1) {
+				return true;
 			}
 		}
-		
-		if(count == (grid.length)) {
-			return true;
-		}
-		
+
 		return false;
 	}
 	
