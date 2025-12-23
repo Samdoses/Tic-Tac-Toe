@@ -1,15 +1,20 @@
 package main;
 
 public class Grid {
+	//Representing the TTT grid as a 2d integer array 
 	int[][] grid;
-	//make size a 
+	
+	// For Marking a unoccupied location.
+	private static final int EMPTY = 0;
+	// For marking a player occupied location.
+	private static final int PLAYER = 1;
 	
 	public Grid(int size) {
 		grid = new int[size][size];
 		
 		for(int row=0;row<size;row++) {
 			for(int collumn=0; collumn<size;collumn++) {
-				grid[row][collumn] = 0;	
+				grid[row][collumn] = EMPTY;	
 			}
 		}
 	}
@@ -17,11 +22,11 @@ public class Grid {
 	//in the future another parameter is needed to understand if it is for player or computer
 	public void selectCell(int row, int collumn){
 		
-		if(grid[row-1][collumn-1] != 0) {
+		if(grid[row-1][collumn-1] != EMPTY) {
 			throw new OccupationException ();
 		}
 		else {
-			grid[row-1][collumn-1] = 1;//later this can be enum or that variable which does not change. (2 is easily forgotten)
+			grid[row-1][collumn-1] = PLAYER;
 		}
 	}
 	
