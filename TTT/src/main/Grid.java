@@ -37,21 +37,21 @@ public class Grid {
 		
 		//Checks if the user has a row to win
 		for(int row=0;row<grid.length;row++) {
-			if(grid[row][0] == 1 && grid[row][1] == 1 && grid[row][2] == 1) {
+			if(grid[row][0] == PLAYER && grid[row][1] == PLAYER && grid[row][2] == PLAYER) {
 				return true;
 			}
 		}
 		
 		//checks if the user has a column to win
 		for(int collumn=0; collumn<grid.length;collumn++) {
-			if(grid[0][collumn] == 1 && grid[1][collumn] == 1 && grid[2][collumn] == 1) {
+			if(grid[0][collumn] == PLAYER && grid[1][collumn] == PLAYER && grid[2][collumn] == PLAYER) {
 				return true;
 			}
 		}
 
 		//checks if the user has a cross to win
-		if(grid[0][0] == 1 && grid[1][1] == 1 && grid[2][2] == 1 ||
-				grid[0][2] == 1 && grid[1][1] == 1 && grid[2][0] == 1) {
+		if(grid[0][0] == PLAYER && grid[1][1] == PLAYER && grid[2][2] == PLAYER ||
+				grid[0][2] == PLAYER && grid[1][1] == PLAYER && grid[2][0] == PLAYER) {
 			return true;
 		}
 		
