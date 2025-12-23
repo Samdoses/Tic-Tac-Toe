@@ -33,7 +33,7 @@ public class Grid {
 	//checks if the player has won
 	public boolean win() {
 		
-		int count=0;
+		//MAKE CONDITION != 0 FOR COMPATABILITY WITH COMPUTER???
 		
 		//Checks if the user has a row to win
 		for(int row=0;row<grid.length;row++) {
@@ -49,6 +49,12 @@ public class Grid {
 			}
 		}
 
+		//checks if the user has a cross to win
+		if(grid[0][0] == 1 && grid[1][1] == 1 && grid[2][2] == 1 ||
+				grid[0][2] == 1 && grid[1][1] == 1 && grid[2][0] == 1) {
+			return true;
+		}
+		
 		return false;
 	}
 	
