@@ -41,6 +41,13 @@ public class Grid {
 				return true;
 			}
 		}
+		
+		//checks if the user has a column to win
+		for(int collumn=0; collumn<grid.length;collumn++) {
+			if(grid[0][collumn] == 1 && grid[1][collumn] == 1 && grid[2][collumn] == 1) {
+				return true;
+			}
+		}
 
 		return false;
 	}
