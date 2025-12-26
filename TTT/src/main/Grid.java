@@ -20,13 +20,13 @@ public class Grid {
 	}
 	
 	//in the future another parameter is needed to understand if it is for player or computer
-	public void selectCell(int row, int collumn){
+	public void selectCell(int row, int collumn, int entity){
 		
 		if(grid[row-1][collumn-1] != EMPTY) {
 			throw new OccupationException ();
 		}
 		else {
-			grid[row-1][collumn-1] = PLAYER;
+			grid[row-1][collumn-1] = entity;
 		}
 	}
 	

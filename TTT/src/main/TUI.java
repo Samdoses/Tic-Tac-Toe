@@ -7,9 +7,12 @@ import java.util.Scanner;
 public final class TUI {
 	private static Grid grid;
 	private final static int GRIDSIZE = 3;
+	private static boolean playerStatus = true;
+	public static RandomComputer RC;
 	
 	public static void start() {
 		grid = new Grid(GRIDSIZE);//creates a 3x3 grid
+		RC = new RandomComputer(grid);//the player's most basic opposition
 
 		//The game loop
 		while(true) {
@@ -21,17 +24,27 @@ public final class TUI {
 		int row = 0;
 		int collumn = 0;
 		
-		Scanner sc = new Scanner(System.in);
-		
-		System.out.println("Enter row");
-		row = sc.nextInt();
-		
-		System.out.println("Enter collumn");
-		collumn = sc.nextInt();
+		if(playerStatus == true) {
+			Scanner sc = new Scanner(System.in);
+			
+			System.out.println("Enter row");
+			row = sc.nextInt();
+			
+			System.out.println("Enter collumn");
+			collumn = sc.nextInt();
+		}
 		
 		//index out of bounds check
 		try {
-			grid.selectCell(row, collumn);
+			if(playerStatus == true) {
+				grid.selectCell(row, collumn, 1);
+				playerStatus = false;
+				}
+			else {
+				RC.selectCell();
+				//grid.selectCell(row, collumn, 2);
+				playerStatus = true;
+			}
 			System.out.println(grid);
 		}
 		catch(ArrayIndexOutOfBoundsException exception){
