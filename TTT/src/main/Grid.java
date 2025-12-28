@@ -75,7 +75,16 @@ public class Grid {
 		
 		for(int row=0;row<grid.length;row++) {
 			for(int collumn=0; collumn<grid.length;collumn++) {
-				result += grid[row][collumn];	
+				if(grid[row][collumn] == PLAYER) {
+					result += "X";	
+				}
+				else if(grid[row][collumn] == OPPONENT) {
+					result += "O";
+				}
+				else {
+					result += "-";
+				}
+				result += "|";
 			}
 			result += "\n";
 		}
