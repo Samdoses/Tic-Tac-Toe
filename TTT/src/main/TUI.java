@@ -58,6 +58,7 @@ public final class TUI {
 		//check if the player has won this term
 		if (grid.win()) {
 			System.out.println("You are wiener");	
+			return;
 		}
 	}
 }
