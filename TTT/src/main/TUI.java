@@ -56,11 +56,11 @@ public final class TUI {
 		
 		
 		//check if the player has won this term
-		if (grid.win(1)) {
+		if (grid.win(grid.getPlayer())) {
 			System.out.println("You are wiener");	
 			return;
 		}
-		else if(grid.win(2)) {
+		else if(grid.win(grid.getOpponent())) {
 			System.out.println("Computer is wiener");	
 			return;
 		}

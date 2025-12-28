@@ -8,6 +8,8 @@ public class Grid {
 	private static final int EMPTY = 0;
 	// For marking a player occupied location.
 	private static final int PLAYER = 1;
+	//For marking a opponent's location
+	private static final int OPPONENT = 2;
 	
 	public Grid(int size) {
 		grid = new int[size][size];
@@ -18,6 +20,16 @@ public class Grid {
 			}
 		}
 	}
+	
+	//allows other classes to access the grid's occupier attributes
+	public int getPlayer() {
+		return PLAYER;
+	}
+	
+	public int getOpponent() {
+		return OPPONENT;
+	}
+	
 	
 	//in the future another parameter is needed to understand if it is for player or computer
 	public void selectCell(int row, int collumn, int entity){

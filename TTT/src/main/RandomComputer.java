@@ -17,6 +17,6 @@ public class RandomComputer implements Computer {
 		System.out.println(row);
 		System.out.println(collumn);
 		
-		grid.selectCell(row, collumn, 2);
+		grid.selectCell(row, collumn, grid.getOpponent());
 	}
 }
