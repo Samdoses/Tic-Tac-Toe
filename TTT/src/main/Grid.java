@@ -77,9 +77,6 @@ public class Grid {
 		
 		return false;
 	}
-	
-	//returns the number of occupied cells (can be used to check if there is a draw)
-	//keep count as an attribute which increases once a select() is run so the nested for loop is not needed (more efficient)
 
 	public String toString() {
 		String result = "";
