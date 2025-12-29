@@ -4,6 +4,9 @@ public class Grid {
 	//Representing the TTT grid as a 2d integer array 
 	int[][] grid;
 	
+	//The number of cells occupied
+	private int count = 0;
+	
 	// For Marking a unoccupied location.
 	private static final int EMPTY = 0;
 	// For marking a player occupied location.
@@ -30,6 +33,10 @@ public class Grid {
 		return OPPONENT;
 	}
 	
+	public int getCount() {
+		return count;
+	}
+	
 	
 	//in the future another parameter is needed to understand if it is for player or computer
 	public void selectCell(int row, int collumn, int entity){
@@ -39,6 +46,7 @@ public class Grid {
 		}
 		else {
 			grid[row-1][collumn-1] = entity;
+			count++;
 		}
 	}
 	
@@ -72,19 +80,7 @@ public class Grid {
 	
 	//returns the number of occupied cells (can be used to check if there is a draw)
 	//keep count as an attribute which increases once a select() is run so the nested for loop is not needed (more efficient)
-	public int count() {
-		int count = 0;
-		
-		for(int row=0;row<grid.length;row++) {
-			for(int collumn=0; collumn<grid.length;collumn++) {
-				if(grid[row][collumn] == PLAYER || grid[row][collumn] == OPPONENT) {
-					count ++;
-				}
-			}
-		}
-		return count;
-	}
-	
+
 	public String toString() {
 		String result = "";
 		

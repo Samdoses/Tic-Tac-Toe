@@ -66,7 +66,7 @@ public final class TUI {
 			System.out.println("Computer is wiener!");	
 			return false;
 		}
-		else if(grid.count() == (GRIDSIZE * GRIDSIZE)) {
+		else if(grid.getCount() == (GRIDSIZE * GRIDSIZE)) {
 			System.out.println("Draw!");	
 			return false;
 		}
