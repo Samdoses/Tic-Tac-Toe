@@ -34,23 +34,25 @@ public final class TUI {
 			collumn = sc.nextInt();
 		}
 		
-		//index out of bounds check
+
 		try {
+			//Switch between the player's and computer's turn
 			if(playerStatus == true) {
-				grid.selectCell(row, collumn, 1);
+				grid.selectCell(row, collumn, grid.getPlayer());
 				playerStatus = false;
 				}
 			else {
 				RC.selectCell();
-				//grid.selectCell(row, collumn, 2);
 				playerStatus = true;
 			}
 			System.out.println(grid);
 		}
 		catch(ArrayIndexOutOfBoundsException exception){
+			//Index out of bounds check
 			System.out.println("Selected cell out of bounds");
 		}
 		catch(OccupationException exception) {
+			//Cell occupied check
 			System.out.println("Selected cell already occupied");
 		}
 		
