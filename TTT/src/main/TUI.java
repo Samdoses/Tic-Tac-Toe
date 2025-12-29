@@ -12,7 +12,7 @@ public final class TUI {
 	
 	public static void start() {
 		grid = new Grid(GRIDSIZE);//creates a 3x3 grid
-		RC = new RandomComputer(grid);//the player's most basic opposition
+		RC = new RandomComputer(grid, GRIDSIZE);//the player's most basic opposition
 
 		//The game loop
 		while(true) {
