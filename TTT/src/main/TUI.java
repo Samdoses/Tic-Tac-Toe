@@ -15,11 +15,11 @@ public final class TUI {
 		RC = new RandomComputer(grid, GRIDSIZE);//the player's most basic opposition
 
 		//The game loop
-		while(true) {
+		while(turn() == true) {
 			turn();
 		}
 	}
-	public static void turn() {
+	public static boolean turn() {
 		
 		int row = 0;
 		int collumn = 0;
@@ -60,15 +60,17 @@ public final class TUI {
 		//check if the player has won this term
 		if (grid.win(grid.getPlayer())) {
 			System.out.println("You are wiener!");	
-			return;
+			return false;
 		}
 		else if(grid.win(grid.getOpponent())) {
 			System.out.println("Computer is wiener!");	
-			return;
+			return false;
 		}
 		else if(grid.count() == (GRIDSIZE * GRIDSIZE)) {
 			System.out.println("Draw!");	
-			return;
+			return false;
 		}
+		
+		return true;
 	}
 }
