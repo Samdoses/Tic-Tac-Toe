@@ -70,6 +70,21 @@ public class Grid {
 		return false;
 	}
 	
+	//returns the number of occupied cells (can be used to check if there is a draw)
+	//keep count as an attribute which increases once a select() is run so the nested for loop is not needed (more efficient)
+	public int count() {
+		int count = 0;
+		
+		for(int row=0;row<grid.length;row++) {
+			for(int collumn=0; collumn<grid.length;collumn++) {
+				if(grid[row][collumn] == PLAYER || grid[row][collumn] == OPPONENT) {
+					count ++;
+				}
+			}
+		}
+		return count;
+	}
+	
 	public String toString() {
 		String result = "";
 		
