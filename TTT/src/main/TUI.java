@@ -9,9 +9,11 @@ public final class TUI {
 	private final static int GRIDSIZE = 3;
 	private static boolean playerStatus = true;
 	public static RandomComputer RC;
+	public static Player P;
 	
 	public static void start() {
 		grid = new Grid(GRIDSIZE);//creates a 3x3 grid
+		P = new Player (grid, GRIDSIZE);
 		RC = new RandomComputer(grid, GRIDSIZE);//the player's most basic opposition
 
 		//The game loop
@@ -21,24 +23,10 @@ public final class TUI {
 	}
 	public static boolean turn() {
 		
-		int row = 0;
-		int collumn = 0;
-		
-		if(playerStatus == true) {
-			Scanner sc = new Scanner(System.in);
-			
-			System.out.println("Enter row");
-			row = sc.nextInt();
-			
-			System.out.println("Enter collumn");
-			collumn = sc.nextInt();
-		}
-		
-
 		try {
 			//Switch between the player's and computer's turn
 			if(playerStatus == true) {
-				grid.selectCell(row, collumn, grid.getPlayer());
+				P.selectCell();
 				playerStatus = false;
 				}
 			else {
