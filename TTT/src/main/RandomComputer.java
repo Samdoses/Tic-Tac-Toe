@@ -2,7 +2,7 @@ package main;
 
 import java.util.Random;
 
-public class RandomComputer implements Computer {
+public class RandomComputer implements Playable {
 	Grid grid;
 	int gridSize;
 	

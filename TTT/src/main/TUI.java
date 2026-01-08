@@ -8,41 +8,41 @@ public final class TUI {
 	private static Grid grid;
 	private final static int GRIDSIZE = 3;
 	private static boolean playerStatus = true;
-	public static RandomComputer RC;
+	//public static RandomComputer O;
+	public static Player P;
+	public static Playable O;
 	
 	public static void start() {
 		grid = new Grid(GRIDSIZE);//creates a 3x3 grid
-		RC = new RandomComputer(grid, GRIDSIZE);//the player's most basic opposition
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Select 1 player mode (1) or 2 player mode (2)");
+		int mode = sc.nextInt();
+		
+		if (mode == 1) {
+			P = new Player (grid, GRIDSIZE);
+			O = new RandomComputer(grid, GRIDSIZE);//the player's most basic opposition
+		}
+		else if (mode == 2) {
+			P = new Player (grid, GRIDSIZE);
+			O = new Player2 (grid, GRIDSIZE);//the player's most basic opposition
+		}
 
 		//The game loop
-		while(turn() == true) {
-			turn();
+		while(turn(P, O) == true) {
+			turn(P, O);
 		}
 	}
-	public static boolean turn() {
+	public static boolean turn(Playable P, Playable O) {
 		
-		int row = 0;
-		int collumn = 0;
-		
-		if(playerStatus == true) {
-			Scanner sc = new Scanner(System.in);
-			
-			System.out.println("Enter row");
-			row = sc.nextInt();
-			
-			System.out.println("Enter collumn");
-			collumn = sc.nextInt();
-		}
-		
-
 		try {
 			//Switch between the player's and computer's turn
 			if(playerStatus == true) {
-				grid.selectCell(row, collumn, grid.getPlayer());
+				P.selectCell();
 				playerStatus = false;
 				}
 			else {
-				RC.selectCell();
+				O.selectCell();
 				playerStatus = true;
 			}
 			System.out.println(grid);
