@@ -43,7 +43,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -98,15 +98,15 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" text="Button" />
-                  <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="1" />
-                  <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="2" />
-                  <Button mnemonicParsing="false" text="Button" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" text="Button" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" onAction="#cell_00" text="Button" />
+                  <Button mnemonicParsing="false" onAction="#cell_01" text="Button" GridPane.columnIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#cell_02" text="Button" GridPane.columnIndex="2" />
+                  <Button mnemonicParsing="false" onAction="#cell_10" text="Button" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#cell_11" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#cell_12" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#cell_20" text="Button" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" onAction="#cell_21" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" onAction="#cell_22" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                </children>
             </GridPane>
       </children>

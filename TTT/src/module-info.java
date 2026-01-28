@@ -11,6 +11,7 @@ module TTT {
     // (Optional) If you plan to use FXML
     requires javafx.fxml;
 	requires javafx.graphics;
+	requires javafx.base;
 
     // You must export your 'main' package so JavaFX can access your Application class
     exports main;
