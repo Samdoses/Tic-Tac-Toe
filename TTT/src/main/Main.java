@@ -25,12 +25,11 @@ public class Main extends Application {
         primaryStage.show();
         
         // Note: You can call TUI.start() here if you want to run the console version 
-        // in a separate thread, but usually you replace TUI with the GUI.
     }
 
     public static void main(String[] args) {
         // Launch the JavaFX application
         launch(args);
-        TUI.start();
+        GameEngine.start();
     }
 }
